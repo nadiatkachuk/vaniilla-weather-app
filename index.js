@@ -20,7 +20,30 @@ function formatDate(date) {
   let currentDay = days[date.getDay()];
   return `${currentDay},   ${currentHours}:${currentMinutes}`;
 }
+let quotesForDay = [
+  "The best preparation for tomorrow is doing your best today",
+  "Nothing is more expensive than a missed opportunity",
+  "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart",
+  "Never give up on what you really want to do",
+  "The person with big dreams is more powerful than the one with all the facts",
+  "The future belongs to those who believe in the beauty of their dreams",
+  "Find a job you like and you add five days to every week",
+  "Nothing will work unless you do",
+];
 
+let quoteElement = document.querySelector("#quote");
+let storedQuote = localStorage.getItem("quoteForDay");
+let today = new Date().toLocaleDateString();
+
+if (storedQuote && localStorage.getItem("date") === today) {
+  quoteElement.textContent = storedQuote;
+} else {
+  let randomIndex = Math.floor(Math.random() * quotesForDay.length);
+  let quote = quotesForDay[randomIndex];
+  localStorage.setItem("quoteForDay", quote);
+  localStorage.setItem("date", today);
+  quoteElement;
+}
 function displayTemperature(response) {
   let temperature = document.querySelector("#temperature");
   let location = document.querySelector("#city");
