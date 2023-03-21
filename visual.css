@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body[category="Clear"] .category {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/860/original/pexels-brett-sayles-912364.jpg?1679359882");
+  color: white;
+}
+body[category="Clouds"] .category {
+  background-color: dimgray;
+  color: white;
+}
+body[category="Rain"] .category {
+  background-color: black;
+  color: white;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgb(135, 135, 135);
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+li::first-letter {
+  text-transform: capitalize;
+}
+
+h1.your-location {
+  color: #878787;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 10px auto;
+}
+.weather-app {
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  padding: 20px;
+}
+.overview {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+}
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34;
+}
+.form-control {
+  height: 40px;
+}
+.form-control:focus {
+  border-color: #01352c;
+  box-shadow: 0px 5px 10px 0px rgba(79, 183, 131, 0.5);
+}
+.btn-success {
+  background-color: #0e9577;
+  height: 40px;
+}
+.btn-success:hover {
+  background-color: #17b794;
+  border: 1px solid #878787;
+}
+
+.link {
+  text-align: center;
+}
+.day {
+  padding-left: 40px;
+}
