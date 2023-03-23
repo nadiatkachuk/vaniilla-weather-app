@@ -1,19 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-body[category="Clear"] .category {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/860/original/pexels-brett-sayles-912364.jpg?1679359882");
-  color: white;
-}
-body[category="Clouds"] .category {
-  background-color: dimgray;
-  color: white;
-}
-body[category="Rain"] .category {
-  background-color: black;
-  color: white;
-}
 ul {
   margin: 0;
   padding: 0;
@@ -87,6 +74,21 @@ h1.your-location {
 .link {
   text-align: center;
 }
-.day {
-  padding-left: 40px;
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.weather-forecast-day {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature {
+  font-size: 13px;
 }
