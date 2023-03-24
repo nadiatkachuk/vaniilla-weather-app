@@ -20,6 +20,33 @@ function formatDate(date) {
   let currentDay = days[date.getDay()];
   return `${currentDay},   ${currentHours}:${currentMinutes}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+              <div class="col-2">
+                <div class="weather-forecast-day">${day}</div>
+                <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max">15°C </span>
+                  <span class="weather-forecast-temperature-min">17°C </span>
+                </div>
+              </div>
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 let quotesForDay = [
   "The best preparation for tomorrow is doing your best today",
   "Nothing is more expensive than a missed opportunity",
@@ -95,6 +122,7 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+displayForecast();
 let celsiusTemperature = null;
 
 let form = document.querySelector("#city-search");
