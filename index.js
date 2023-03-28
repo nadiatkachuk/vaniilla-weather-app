@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let currentHours = date.getHours();
   if (currentHours < 10) {
     currentHours = `0${currentHours}`;
@@ -30,7 +31,7 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
@@ -103,9 +104,10 @@ function displayTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#date");
 
   celsiusTemperature = response.data.main.temp;
-
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   temperature.innerHTML = Math.round(celsiusTemperature);
   location.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
