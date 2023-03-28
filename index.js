@@ -77,18 +77,8 @@ let quotesForDay = [
 ];
 
 let quoteElement = document.querySelector("#quote");
-let storedQuote = localStorage.getItem("quoteForDay");
-let today = new Date().toLocaleDateString();
-
-if (storedQuote && localStorage.getItem("date") === today) {
-  quoteElement.textContent = storedQuote;
-} else {
-  let randomIndex = Math.floor(Math.random() * quotesForDay.length);
-  let quote = quotesForDay[randomIndex];
-  localStorage.setItem("quoteForDay", quote);
-  localStorage.setItem("date", today);
-  quoteElement;
-}
+let index = Math.floor(Math.random() * quotesForDay.length);
+quoteElement.innerHTML = quotesForDay[index];
 
 function getForecast(coordinates) {
   console.log(coordinates);
