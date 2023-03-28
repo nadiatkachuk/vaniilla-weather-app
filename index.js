@@ -52,7 +52,7 @@ function displayForecast(response) {
                 <div class="weather-forecast-temperature">
                   <span class="weather-forecast-temperature-max">${Math.round(
                     forecastDay.temp.max
-                  )}°C </span>
+                  )}°F </span>
                   <span class="weather-forecast-temperature-min">
                     ${Math.round(forecastDay.temp.min)}°F </span>
                 </div>
@@ -118,7 +118,29 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
+  backGroundChanger(response);
   getForecast(response.data.coord);
+}
+
+function backGroundChanger(response) {
+  let weather = response.data.weather[0].main;
+  let body = document.querySelector("#image");
+  if (weather === "Clouds") {
+    body.style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/910/original/pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-19670_%281%29.jpg?1679968822')";
+  } else if (weather === "Rain") {
+    body.style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/913/original/pexels-lumn-311039.jpg?1679969440')";
+  } else if (weather === "Snow") {
+    body.style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/911/original/pexels-jill-wellington-327131.jpg?1679969055')";
+  } else if (weather === "Clear") {
+    body.style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/915/original/pexels-amy-chandra-789152.jpg?1679970606')";
+  } else {
+    body.style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/916/original/pexels-min-an-1369280.jpg?1679970914')";
+  }
 }
 
 function search(city) {
